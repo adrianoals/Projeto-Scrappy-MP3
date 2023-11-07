@@ -51,7 +51,7 @@ for artista in lista_artista:
     # Percorrendo a lista de músicas e entrando nelas
     for musica in titulos_das_musicas:
         clicando_no_texto(driver, musica)
-        sleep(1)
+        sleep(2)
         # Obetendo o script da musica
         elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
         # Obtenha o conteúdo interno do elemento <script>
@@ -60,18 +60,21 @@ for artista in lista_artista:
         print(conteudo_script)
 
         # Adicionando pausa
-        sleep(1.2)
+        sleep(2.2)
 
         # Retornando a página de músicas do artista
         # Localizando o botão pelo seletor de classe e clicando nele
         botao_voltar = driver.find_element(By.CSS_SELECTOR, "button.navbar-brand")
         botao_voltar.click()
+        
+        # Adicionando pausa
+        sleep(2.1)
 
     # Retornando a página do artistas
     # Localizando o botão pelo seletor de classe e clicando nele
     botao_voltar = driver.find_element(By.CSS_SELECTOR, "button.navbar-brand")
     botao_voltar.click()
-    sleep(0.3)
+    sleep(1.5)
 
 
 # antes de fehar a automacao

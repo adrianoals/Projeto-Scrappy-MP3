@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from time import sleep
+import json
 
 def iniciar_driver():
     chrome_options = Options()
@@ -138,17 +139,12 @@ conteudo_script = elemento_script.get_attribute('innerHTML')
 
 # Imprima o conteúdo do script
 print(conteudo_script)
+print(type(conteudo_script))
 
-# Retornando a página de músicas do artista
-# Localizando o botão pelo seletor de classe e clicando nele
-botao_voltar = driver.find_element_by_class_name("fa-arrow-left")
-botao_voltar.click()
-
-# Encontre o elemento pelo nome da classe
-element = driver.find_element_by_class_name("fa-arrow-left")
-
-# Execute a ação desejada no elemento
-element.click()
+data = json.loads(conteudo_script)
+print()
+print(type(data))
+print(data)
 
 
 # antes de fehar a automacao
