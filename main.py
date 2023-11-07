@@ -82,6 +82,7 @@ print(event_labels)
 
 # Pausa
 sleep(1)
+
 # Entrando no artista e baixando a música
 # Localize o elemento com o texto "Aerosmith"
 elemento_aerosmith = driver.find_element(By.XPATH, '//div[contains(text(), "Aerosmith")]')
@@ -89,7 +90,6 @@ elemento_aerosmith = driver.find_element(By.XPATH, '//div[contains(text(), "Aero
 # Clique no elemento
 elemento_aerosmith.click()
 print('Botão "Aerosmith" clicado')
-
 
 sleep(0.9)
 
@@ -139,7 +139,16 @@ conteudo_script = elemento_script.get_attribute('innerHTML')
 # Imprima o conteúdo do script
 print(conteudo_script)
 
+# Retornando a página de músicas do artista
+# Localizando o botão pelo seletor de classe e clicando nele
+botao_voltar = driver.find_element_by_class_name("fa-arrow-left")
+botao_voltar.click()
 
+# Encontre o elemento pelo nome da classe
+element = driver.find_element_by_class_name("fa-arrow-left")
+
+# Execute a ação desejada no elemento
+element.click()
 
 
 # antes de fehar a automacao
