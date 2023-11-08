@@ -1,4 +1,10 @@
 from funnction import *
+from mongodb import *
+import json
+
+
+# Conectando ao banco de dados
+db_connection = connect_to_db('mongodb://localhost:27017/', 'VS_Musics')
 
 # Iniciando o driver
 driver = iniciar_driver()
@@ -61,6 +67,13 @@ for artista in lista_artista:
 
         # Adicionando pausa
         sleep(2.2)
+
+        # Converte a string JSON em um objeto Python
+        data = json.loads(conteudo_script)
+
+        # Insere o objeto Python no MongoDB
+        insert_one_document(db_connection,'VS_Musics', data)
+        # result = collection.insert_one(data)
 
         # Retornando a página de músicas do artista
         # Localizando o botão pelo seletor de classe e clicando nele

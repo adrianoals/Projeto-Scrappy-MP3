@@ -7,8 +7,13 @@ string_json = '{\"id\":1140,\"name\":\"Crazy\",\"artist\":{\"id\":37,\"name\":\"
 dicionario = json.loads(string_json)
 
 # Imprima o dicionário
-# print(dicionario)
+print(dicionario)
+print()
+print(type(dicionario))
+print()
 
 path = dicionario['tracks'][0]['path']
 name = dicionario['tracks'][0]['name']
 print(path, name)
+
+print()

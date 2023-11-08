@@ -1,4 +1,5 @@
 from funnction import *
+import json
 
 # Iniciando o driver
 driver = iniciar_driver()
@@ -20,35 +21,35 @@ driver.get('https://player.kovver.app/genres/3/artists')
 
 sleep(1)
 
+# Indo no artista
+clicando_no_texto(driver, "3 Doors Down")
 
-for artista in lista_artista:
-    # Entrando no artista
-    clicando_no_texto(driver, artista)
+sleep(1)
 
-    # Adicionando Pausa
-    sleep(1)
+# Clicando na música
+clicando_no_texto(driver, 'Here Without You')
 
-    # Verificaando a quantidade de músicas do artista
-    # Localizando todos os elementos com a classe "item-title"
-    elementos_item_title = driver.find_elements(By.CSS_SELECTOR, '.item-title')
-    # Criando uma lista para armazenar os títulos das músicas
-    titulos_das_musicas = []
-    # Percorrendo cada elemento e adicionando o título da música
-    for elemento in elementos_item_title:
-        titulos_das_musicas.append(elemento.text)    
-    
-    # Imprimindo as músicas
-    print(titulos_das_musicas)
-    
-    # Adicionando Pausa
-    sleep(1)
-    
-    # Retornando a página de artistas
-    # Localizando o botão pelo seletor de classe e clicando nele
-    botao_voltar = driver.find_element(By.CSS_SELECTOR, "button.navbar-brand")
-    botao_voltar.click()
+# Localize o elemento <script>
+elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
 
-    # Adicionando Pausa
-    sleep(1)
-    
-    input('deseja continuar? ')
+# Obtenha o conteúdo interno do elemento <script>
+conteudo_script = elemento_script.get_attribute('innerHTML')
+print(conteudo_script)
+print()
+print(type(conteudo_script))
+print()
+
+script = json.dumps(conteudo_script)
+print(script)
+print()
+print(type(script))
+print()
+
+# Converta a string JSON em um objeto JSON
+obj_json = json.loads(script)
+print(obj_json)
+print()
+print(type(script))
+
+# antes de fehar a automacao
+input('digite algo para fechar... ')
