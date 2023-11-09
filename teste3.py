@@ -1,13 +1,13 @@
 from funnction import *
 import json
 from mongodb import *
+from time import sleep
+from random import uniform
 
-connection_string = 'mongodb://admin:password@localhost:27017/?authSource=ad'
+connection_string = 'mongodb://localhost:27017/'
 db_name = 'VS_Musics'
+db_connection = connect_to_db(connection_string=connection_string, db_name=db_name)
 
-client = MongoClient(connection_string)
-db_connection = client[db_name]
-collection = db_connection['json_musicas']
 
 # Iniciando o driver
 driver = iniciar_driver()
@@ -16,7 +16,8 @@ driver = iniciar_driver()
 navegar_site(driver)
 
 # Pausa
-sleep(3)
+pausa_aleatoria = uniform(1, 3)
+sleep(pausa_aleatoria)
 
 # Fazendo Login
 login(driver)
@@ -30,12 +31,12 @@ driver.get('https://player.kovver.app/genres/3/artists')
 sleep(1.2)
 
 # Indo no artista
-clicando_no_texto(driver, "3 Doors Down")
+clicando_no_texto(driver, "Aerosmith")
 
 sleep(1)
 
 # Clicando na música
-clicando_no_texto(driver, 'Here Without You')
+clicando_no_texto(driver, 'Dream On')
 
 # Localize o elemento <script>
 elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
@@ -68,8 +69,7 @@ print(obj_json)
 print()
 print(type(obj_json))
 
-# Insere o dicionário na coleção
-collection.insert_one(obj_json)
+insert_one_document(db_connection=db_connection, collection_name='Musicas', data=obj_json)
 
 # antes de fehar a automacao
 input('digite algo para fechar... ')

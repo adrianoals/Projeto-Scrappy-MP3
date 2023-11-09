@@ -1,7 +1,8 @@
 from funnction import *
 from mongodb import *
 import json
-
+from time import sleep
+from random import uniform
 
 # Conectando ao banco de dados
 db_connection = connect_to_db('mongodb://localhost:27017/', 'VS_Musics')
@@ -13,7 +14,8 @@ driver = iniciar_driver()
 navegar_site(driver)
 
 # Pausa
-sleep(5)
+pausa_aleatoria = uniform(2, 4)
+sleep(pausa_aleatoria)
 
 # Fazendo Login
 login(driver)
@@ -39,7 +41,7 @@ for artista in lista_artista:
     clicando_no_texto(driver, artista)
 
     # Adicionando Pausa
-    sleep(1)
+    sleep(pausa_aleatoria)
 
     # Verificaando a quantidade de músicas do artista
     # Localizando todos os elementos com a classe "item-title"
@@ -57,23 +59,28 @@ for artista in lista_artista:
     # Percorrendo a lista de músicas e entrando nelas
     for musica in titulos_das_musicas:
         clicando_no_texto(driver, musica)
-        sleep(2)
+        sleep(pausa_aleatoria)
         # Obetendo o script da musica
         elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
         # Obtenha o conteúdo interno do elemento <script>
         conteudo_script = elemento_script.get_attribute('innerHTML')
-        # Imprima o conteúdo do script
-        print(conteudo_script)
-
+        
         # Adicionando pausa
-        sleep(2.2)
+        sleep(pausa_aleatoria)
 
-        # Converte a string JSON em um objeto Python
-        data = json.loads(conteudo_script)
+        script = json.dumps(conteudo_script)
 
-        # Insere o objeto Python no MongoDB
-        insert_one_document(db_connection,'VS_Musics', data)
-        # result = collection.insert_one(data)
+        # Formatando Json
+        script = script[1:-1]
+        script = script.replace('\\' , '')
+        script = script.strip().lstrip("\n        openPlayer('").rstrip("');\nn    ")
+
+        # # Converta a string JSON em um objeto JSON
+        obj_json = json.loads(script)
+        print(obj_json)
+        
+        insert_one_document(db_connection=db_connection, collection_name='Musicas', data=obj_json)
+        
 
         # Retornando a página de músicas do artista
         # Localizando o botão pelo seletor de classe e clicando nele
@@ -87,7 +94,7 @@ for artista in lista_artista:
     # Localizando o botão pelo seletor de classe e clicando nele
     botao_voltar = driver.find_element(By.CSS_SELECTOR, "button.navbar-brand")
     botao_voltar.click()
-    sleep(1.5)
+    sleep(pausa_aleatoria)
 
 
 # antes de fehar a automacao

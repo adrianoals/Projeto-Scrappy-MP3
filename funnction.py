@@ -3,7 +3,6 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from time import sleep
 
 def iniciar_driver():
     chrome_options = Options()

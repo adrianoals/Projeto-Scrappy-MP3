@@ -25,8 +25,16 @@ def find_one_document(db_connection, collection_name, query):
     return document
 
 def insert_one_document(db_connection, collection_name, data):
-    inserted_document = db_connection[collection_name].insert_one(data)
-    return inserted_document
+    try:
+        inserted_document = db_connection[collection_name].insert_one(data)
+        print("Documento inserido com sucesso. O ID do documento é: ", inserted_document.inserted_id)
+        return inserted_document
+    except Exception as e:
+        print("Ocorreu um erro ao inserir o documento: ", e)
+
+# def insert_one_document(db_connection, collection_name, data):
+#     inserted_document = db_connection[collection_name].insert_one(data)
+#     return inserted_document
 
 def insert_many_documents(db_connection, collection_name, data):
     inserted_documents = db_connection[collection_name].insert_many(data)
