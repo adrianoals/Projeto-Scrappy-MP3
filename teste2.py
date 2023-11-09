@@ -27,9 +27,22 @@ print(json_teste2)
 print(type(json_teste2))
 print()
 json_teste2 = json_teste2[1:-1]
+print(json_teste2)
+print(type(json_teste2))
+print()
 
-# dados2 =json.loads(json_teste2)
-# print()
-# print(dados2)
-# print()
-# print(type(dados2))
+dados2 =json.loads(json_teste2)
+print(dados2)
+print()
+print(type(dados2))
+
+
+print(dados2['artist']['name'])
+print(dados2['name'])
+print(dados2['tracks'])
+print(dados2['tracks'][0]['path'])
+print(dados2['tracks'][0]['name'])
+
+
+
+
