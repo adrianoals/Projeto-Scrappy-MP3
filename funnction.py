@@ -53,19 +53,6 @@ def clicando_no_texto(driver, texto):
 
 lista_artista = ['3 Doors Down', '4 Non Blondes', 'AC/DC', 'Aerosmith', 'Al Jarreau', 'Alanis Morissette', 'Alice in Chains', 'Andy Dreamy Day', 'Andy Williams', 'Angra', 'Arctic Monkeys', 'Audioslave', 'Avenged Sevenfold', 'Beyond Cyberia', 'Billy Joel', 'Biquíni Cavadão', 'Black Sabbath', 'Blink-182', 'Bon Jovi', 'Brainless Wonders', 'Brittney', 'Bruce Springsteen', 'Bryan Adams', 'Buckcherry', 'Bud Elkin & Company', 'Canto das Gerais', 'Chaos Disorder', 'Charcot Marie', 'Chuck & Patty', 'Chuck Berry', 'Corey Landis', 'Cream', 'Creed', 'Creedence Clearwater Revival', 'Dark Jester', 'David Bowie', 'Dé Repetto & William Possato', 'Deep Purple', 'Dire Straits', 'Dream Theater', 'Dust To Dust', 'Eagles', 'Elbert Torphy', 'Elton John', 'Elvis Presley', 'Eric Clapton', 'Europe', 'Eviltwins', 'Extreme', 'Fabiano Manhas', 'Faith No More', 'Fall Out Boy', 'Fireflight', 'Fleetwood Mac', 'Flywire', 'Foo Fighters', 'Foreigner', 'Genesis', 'Goo Goo Dolls', 'Gorillaz', 'Green Day', 'Greta Van Fleet', 'Guns N', 'Guy Campo', 'Heart', 'High Wire Dive', 'Huey Lewis & The News', 'Imagine Dragons', 'Improved', 'Inn Sample', 'IRA', 'Iron Maiden', 'Isabella', 'James Blunt', 'Janis Joplin', 'Jason Aaron Wood', 'Jezebel', 'Jim Willoughby', 'Jimi Hendrix', 'Joan Jett', 'Joan Osborne', 'Joe Cocker', 'John Daly', 'John Lennon', 'John Mayer', 'John Mellencamp', 'Josey Wells', 'Journey', 'Kansas', 'Kiss', 'Konfront the Khaos', 'Korn', 'Krisiun', 'Led Zeppelin', 'Limp Bizkit', 'Linkin Park', 'Little Drop Joe', 'Low Embryonic Cells', 'Lynyrd Skynyrd', 'Marilyn Manson', 'Maurício Alabama', 'Megadeth', 'Men at Work', 'Metallica', 'Metallstein Rock', 'Motley Crue', 'Motörhead', 'Muse', 'My Chemical Romance', 'Nann Farias', 'Napalmbats', 'Nirvana', 'Oasis', 'Ol Sonuf', 'Ozzy Osbourne', 'Pantera', 'Paramore', 'Patsy Cline', 'Paul McCartney', 'Pearl Jam', 'Pedram Mojtabavi', 'Peep Show Junkies', 'Peter Frampton', 'Peter Gabriel', 'Phil Collins', 'Pink Floyd', 'Poison', 'Poperia', 'Prince', 'Queen', 'Queens of the Stone Age', 'R.E.M.', 'Radiohead', 'Rage Against the Machine', 'Rai Starr', 'Raimundos', 'Ramones', 'Red Hot Chili Peppers', 'Ritchie Valens', 'Rock Feelings Podcast', 'Rock Noisy', 'Rod Stewart', 'Roxette', 'Roy Orbison', 'Rush', 'Santana', 'School of Rock', 'Scorpions', 'Shadowplay', 'Shawn Mendes', 'Simple Minds', 'Skillet', 'Slipknot', 'Spacecruiser', 'Steppenwolf', 'Steve Vai', 'Stone Sour', 'Supertramp', 'Survivor', 'System Of A Down', 'Tearful Regret', 'Tenacious D', 'The Animals', 'The Beatles', 'The Cosmic Surfer', 'The Cure', 'The Doors', 'The Freejacks', 'The Killers', 'The Nucleus Winter', 'The Offspring', 'The Police', 'The Rolling Stones', 'The White Stripes', 'The Who', 'Tina Turner', 'Toto', 'Treadplate', 'U2', 'Ultraje a Rigor', 'Uns e Outros', 'Van Halen', 'Velvet Revolver', 'Vivendo do Ócio', 'Whitesnake', 'Wry', 'Yacht Sunset', 'YMA', 'Zero Time Ghosts']
 
-
-
-
-# # Localizando o elemento com o texto "Rock" e clicando nele
-# elemento_rock = driver.find_element(By.XPATH, '//div[contains(text(), "Rock")]')
-# # Clique no elemento
-# elemento_rock.click()
-# print('Botão "Rock" clicado')
-
-# # Pausa
-# sleep(2)
-
-
 # # Localizando todos os elementos com a classe "artist-thumb"
 # elementos_artist_thumb = driver.find_elements(By.CSS_SELECTOR, '.artist-thumb')
 # # Crie uma lista para armazenar os conteúdos do 'event_label'
@@ -86,66 +73,4 @@ lista_artista = ['3 Doors Down', '4 Non Blondes', 'AC/DC', 'Aerosmith', 'Al Jarr
 # # for event_label in event_labels:
 # #     print(event_label)
 
-# # Pausa
-# sleep(1)
-# # Entrando no artista e baixando a música
-# # Localize o elemento com o texto "Aerosmith"
-# elemento_aerosmith = driver.find_element(By.XPATH, '//div[contains(text(), "Aerosmith")]')
 
-# # Clique no elemento
-# elemento_aerosmith.click()
-# print('Botão "Aerosmith" clicado')
-
-
-# sleep(0.9)
-# # Verificaando a quantidade de músicas do artista
-# # Localize todos os elementos com a classe "item-title"
-# elementos_item_title = driver.find_elements(By.CSS_SELECTOR, '.item-title')
-
-# # Crie uma lista para armazenar os textos
-# titulos = []
-
-# # Percorra cada elemento e adicione o texto à lista
-# for elemento in elementos_item_title:
-#     titulos.append(elemento.text)
-
-# # Imprima os textos
-# print(titulos)
-# # for titulo in titulos:
-# #     print(titulo)
-
-
-# sleep(1)
-
-# # Entrando dentro da música Crazy
-# elemento_musica = driver.find_element(By.XPATH, '//div[contains(text(), "Crazy")]')
-
-# # Clique no elemento
-# elemento_musica.click()
-# print('Botão "Crazy" clicado')
-
-# print('')
-
-# sleep(5)
-
-# # # Obtenha o código-fonte da página
-# # codigo_fonte = driver.page_source
-# # # Imprima o código-fonte
-# # print(codigo_fonte)
-
-# print('')
-
-# # Localize o elemento <script>
-# elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
-
-# # Obtenha o conteúdo interno do elemento <script>
-# conteudo_script = elemento_script.get_attribute('innerHTML')
-
-# # Imprima o conteúdo do script
-# print(conteudo_script)
-
-
-
-
-# # antes de fehar a automacao
-# input('digite algo para fechar... ')

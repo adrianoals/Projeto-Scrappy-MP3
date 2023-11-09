@@ -1,6 +1,6 @@
 from funnction import *
 import json
-from mongodb import *
+from database_config import *
 from time import sleep
 from random import uniform
 
