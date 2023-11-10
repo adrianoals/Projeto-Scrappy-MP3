@@ -3,6 +3,8 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+import os
+import requests
 
 def iniciar_driver():
     chrome_options = Options()
@@ -52,6 +54,25 @@ def clicando_no_texto(driver, texto):
 
 
 lista_artista = ['3 Doors Down', '4 Non Blondes', 'AC/DC', 'Aerosmith', 'Al Jarreau', 'Alanis Morissette', 'Alice in Chains', 'Andy Dreamy Day', 'Andy Williams', 'Angra', 'Arctic Monkeys', 'Audioslave', 'Avenged Sevenfold', 'Beyond Cyberia', 'Billy Joel', 'Biquíni Cavadão', 'Black Sabbath', 'Blink-182', 'Bon Jovi', 'Brainless Wonders', 'Brittney', 'Bruce Springsteen', 'Bryan Adams', 'Buckcherry', 'Bud Elkin & Company', 'Canto das Gerais', 'Chaos Disorder', 'Charcot Marie', 'Chuck & Patty', 'Chuck Berry', 'Corey Landis', 'Cream', 'Creed', 'Creedence Clearwater Revival', 'Dark Jester', 'David Bowie', 'Dé Repetto & William Possato', 'Deep Purple', 'Dire Straits', 'Dream Theater', 'Dust To Dust', 'Eagles', 'Elbert Torphy', 'Elton John', 'Elvis Presley', 'Eric Clapton', 'Europe', 'Eviltwins', 'Extreme', 'Fabiano Manhas', 'Faith No More', 'Fall Out Boy', 'Fireflight', 'Fleetwood Mac', 'Flywire', 'Foo Fighters', 'Foreigner', 'Genesis', 'Goo Goo Dolls', 'Gorillaz', 'Green Day', 'Greta Van Fleet', 'Guns N', 'Guy Campo', 'Heart', 'High Wire Dive', 'Huey Lewis & The News', 'Imagine Dragons', 'Improved', 'Inn Sample', 'IRA', 'Iron Maiden', 'Isabella', 'James Blunt', 'Janis Joplin', 'Jason Aaron Wood', 'Jezebel', 'Jim Willoughby', 'Jimi Hendrix', 'Joan Jett', 'Joan Osborne', 'Joe Cocker', 'John Daly', 'John Lennon', 'John Mayer', 'John Mellencamp', 'Josey Wells', 'Journey', 'Kansas', 'Kiss', 'Konfront the Khaos', 'Korn', 'Krisiun', 'Led Zeppelin', 'Limp Bizkit', 'Linkin Park', 'Little Drop Joe', 'Low Embryonic Cells', 'Lynyrd Skynyrd', 'Marilyn Manson', 'Maurício Alabama', 'Megadeth', 'Men at Work', 'Metallica', 'Metallstein Rock', 'Motley Crue', 'Motörhead', 'Muse', 'My Chemical Romance', 'Nann Farias', 'Napalmbats', 'Nirvana', 'Oasis', 'Ol Sonuf', 'Ozzy Osbourne', 'Pantera', 'Paramore', 'Patsy Cline', 'Paul McCartney', 'Pearl Jam', 'Pedram Mojtabavi', 'Peep Show Junkies', 'Peter Frampton', 'Peter Gabriel', 'Phil Collins', 'Pink Floyd', 'Poison', 'Poperia', 'Prince', 'Queen', 'Queens of the Stone Age', 'R.E.M.', 'Radiohead', 'Rage Against the Machine', 'Rai Starr', 'Raimundos', 'Ramones', 'Red Hot Chili Peppers', 'Ritchie Valens', 'Rock Feelings Podcast', 'Rock Noisy', 'Rod Stewart', 'Roxette', 'Roy Orbison', 'Rush', 'Santana', 'School of Rock', 'Scorpions', 'Shadowplay', 'Shawn Mendes', 'Simple Minds', 'Skillet', 'Slipknot', 'Spacecruiser', 'Steppenwolf', 'Steve Vai', 'Stone Sour', 'Supertramp', 'Survivor', 'System Of A Down', 'Tearful Regret', 'Tenacious D', 'The Animals', 'The Beatles', 'The Cosmic Surfer', 'The Cure', 'The Doors', 'The Freejacks', 'The Killers', 'The Nucleus Winter', 'The Offspring', 'The Police', 'The Rolling Stones', 'The White Stripes', 'The Who', 'Tina Turner', 'Toto', 'Treadplate', 'U2', 'Ultraje a Rigor', 'Uns e Outros', 'Van Halen', 'Velvet Revolver', 'Vivendo do Ócio', 'Whitesnake', 'Wry', 'Yacht Sunset', 'YMA', 'Zero Time Ghosts']
+
+
+def criar_diretorio(artista, musica):
+    try:
+        # Definindo caminho
+        caminho_do_diretorio = r"C:\Users\drili\OneDrive\Área de Trabalho\Projeto Scrappy MP3\MP3"
+        # Definindo o nome da pasta 
+        nome_da_pasta = f"{artista} - {musica}"
+        # Combinando o caminho do diretório com o nome da pasta
+        caminho_completo = os.path.join(caminho_do_diretorio, nome_da_pasta)
+         # Método makedirs() para criar a pasta
+        os.makedirs(caminho_completo, exist_ok=True)
+        print(f"Pasta '{nome_da_pasta}' criada com sucesso em '{caminho_do_diretorio}'")
+        return caminho_completo
+    except Exception as e:
+        print(f"Não foi possível criar a pasta. Erro: {str(e)}")
+
+
+
 
 # # Localizando todos os elementos com a classe "artist-thumb"
 # elementos_artist_thumb = driver.find_elements(By.CSS_SELECTOR, '.artist-thumb')
