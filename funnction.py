@@ -72,6 +72,35 @@ def criar_diretorio(artista, musica):
         print(f"Não foi possível criar a pasta. Erro: {str(e)}")
 
 
+def download_arquivos(link_download, caminho, nome_arquivo):
+    try:
+        # Fazendo uma requisição GET para a URL
+        resposta = requests.get(link_download)
+        # Verificando se a requisição foi bem sucedida
+        resposta.raise_for_status()
+    except requests.exceptions.HTTPError as errh:
+        print ("Erro HTTP:", errh)
+    except requests.exceptions.ConnectionError as errc:
+        print ("Erro de Conexão:", errc)
+    except requests.exceptions.Timeout as errt:
+        print ("Timeout:", errt)
+    except requests.exceptions.RequestException as err:
+        print ("Erro:", err)
+    else:
+        try:
+            with open(os.path.join(caminho, nome_arquivo), 'wb') as arquivo:
+                arquivo.write(resposta.content)
+                print('Arquivo baixado com sucesso')
+        except Exception as e:
+            print("Não foi possível salvar o arquivo:", e)
+
+
+# # Fazendo uma requisição GET para a URL
+# resposta = requests.get(link_download)
+# with open(os.path.join(caminho, nome_arquivo), 'wb') as arquivo:
+#     arquivo.write(resposta.content)
+#     print('Arquivo baixado com sucesso')
+
 
 
 # # Localizando todos os elementos com a classe "artist-thumb"

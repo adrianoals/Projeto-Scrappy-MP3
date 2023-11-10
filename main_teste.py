@@ -36,7 +36,7 @@ clicando_no_texto(driver, "Aerosmith")
 sleep(1)
 
 # Clicando na música
-clicando_no_texto(driver, 'Dream On')
+clicando_no_texto(driver, 'Crazy')
 
 # Localize o elemento <script>
 elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')

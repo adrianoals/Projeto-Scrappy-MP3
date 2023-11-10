@@ -1,6 +1,4 @@
 from database_config import *
-import requests
-import os
 from funnction import *
 
 connection_string = 'mongodb://localhost:27017/'
@@ -25,15 +23,20 @@ for document in documents:
         nome = name['name']
         nome_arquivo = nome + '.mp3'
         link_download = name['path']
-        # Fazendo uma requisição GET para a URL
-        resposta = requests.get(link_download)
-        with open(os.path.join(caminho, nome_arquivo), 'wb') as arquivo:
-            arquivo.write(resposta.content)
-            print('Arquivo baixado com sucesso')
-    
-    # Salvando arquivo de metronomo
 
-    # print(document['metronome']['name'])
+        download_arquivos(link_download=link_download, caminho=caminho, nome_arquivo=nome_arquivo)
+
+    # Salvando arquivo de metronomo
+    try:
+        link_metronome = document['metronome']['path']
+        download_arquivos(link_download=link_metronome, caminho=caminho, nome_arquivo='Metronomo.mp3')
+    except KeyError as e:
+        print("Chave não encontrada no documento:", e)
+    except Exception as e:
+        print("Erro ao baixar e salvar o arquivo:", e)
+    
+
+
 
 
 
