@@ -55,6 +55,7 @@ for artista in lista_artista:
         
     # Imprimindo as músicas
     print(titulos_das_musicas)
+    print()
             
     # Percorrendo a lista de músicas e entrando nelas
     for musica in titulos_das_musicas:
@@ -80,7 +81,7 @@ for artista in lista_artista:
         print(obj_json)
         
         insert_one_document(db_connection=db_connection, collection_name='Musicas', data=obj_json)
-        
+        print()
 
         # Retornando a página de músicas do artista
         # Localizando o botão pelo seletor de classe e clicando nele
