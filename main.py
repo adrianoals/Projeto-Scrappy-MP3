@@ -69,33 +69,34 @@ for artista in lista_artista:
             elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
             # Obtenha o conteúdo interno do elemento <script>
             conteudo_script = elemento_script.get_attribute('innerHTML')
+    
+            # Adicionando pausa
+            sleep(pausa_aleatoria)
+
+            script = json.dumps(conteudo_script)
+
+            # Formatando Json
+            script = script[1:-1]
+            script = script.replace('\\' , '')
+            script = script.strip().lstrip("\n        openPlayer('").rstrip("');\nn    ")
+
+            # # Converta a string JSON em um objeto JSON
+            obj_json = json.loads(script)
+            print(obj_json)
+            
+            insert_one_document(db_connection=db_connection, collection_name='Musicas', data=obj_json)
+            print()
+
         except:
             print()
             print(f'Nao foi possível pegar o script da música {musica} do {artista}')
             print()
-
-        # Adicionando pausa
-        sleep(pausa_aleatoria)
-
-        script = json.dumps(conteudo_script)
-
-        # Formatando Json
-        script = script[1:-1]
-        script = script.replace('\\' , '')
-        script = script.strip().lstrip("\n        openPlayer('").rstrip("');\nn    ")
-
-        # # Converta a string JSON em um objeto JSON
-        obj_json = json.loads(script)
-        print(obj_json)
         
-        insert_one_document(db_connection=db_connection, collection_name='Musicas', data=obj_json)
-        print()
-
         # Retornando a página de músicas do artista
         # Localizando o botão pelo seletor de classe e clicando nele
         botao_voltar = driver.find_element(By.CSS_SELECTOR, "button.navbar-brand")
         botao_voltar.click()
-        
+
         # Adicionando pausa
         sleep(2.1)
 
