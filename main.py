@@ -63,12 +63,17 @@ for artista in lista_artista:
 
         clicando_no_texto2(driver, musica)
         
-        sleep(pausa_aleatoria)
+        sleep(5)
         # Obetendo o script da musica
-        elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
-        # Obtenha o conteúdo interno do elemento <script>
-        conteudo_script = elemento_script.get_attribute('innerHTML')
-        
+        try: 
+            elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
+            # Obtenha o conteúdo interno do elemento <script>
+            conteudo_script = elemento_script.get_attribute('innerHTML')
+        except:
+            print()
+            print(f'Nao foi possível pegar o script da música {musica} do {artista}')
+            print()
+
         # Adicionando pausa
         sleep(pausa_aleatoria)
 
