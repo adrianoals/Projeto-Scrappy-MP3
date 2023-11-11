@@ -59,7 +59,10 @@ for artista in lista_artista:
             
     # Percorrendo a lista de músicas e entrando nelas
     for musica in titulos_das_musicas:
-        clicando_no_texto(driver, musica)
+        sleep(pausa_aleatoria)
+
+        clicando_no_texto2(driver, musica)
+        
         sleep(pausa_aleatoria)
         # Obetendo o script da musica
         elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
