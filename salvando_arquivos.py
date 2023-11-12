@@ -1,5 +1,5 @@
-from database_config import *
-from funnction import *
+from database import *
+from funnctions import *
 
 connection_string = 'mongodb://localhost:27017/'
 db_name = 'VS_Musics'

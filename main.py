@@ -1,8 +1,10 @@
-from funnction import *
-from database_config import *
+from selenium_functions import *
+from database import *
 import json
 from time import sleep
 from random import uniform
+from lista_de_musicas import *
+from funnctions import *
 
 # Conectando ao banco de dados
 db_connection = connect_to_db('mongodb://localhost:27017/', 'VS_Musics')
@@ -30,13 +32,13 @@ clicando_webplayer(driver)
 sleep(3)
 
 # Clicando no rock
-clicando_no_texto(driver, "Rock")
+clicando_no_texto(driver, "Rock Nacional")
 
 # Adicionando Pausa
 sleep(1.4)
 
 
-for artista in lista_artista:
+for artista in lista_artista_rock_nacional:
     # Entrando no artista
     clicando_no_texto(driver, artista)
 
