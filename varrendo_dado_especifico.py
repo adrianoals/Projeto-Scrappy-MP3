@@ -31,7 +31,7 @@ clicando_webplayer(driver)
 sleep(3)
 
 # Clicando no rock
-clicando_no_texto(driver, "Rock Nacional")
+clicando_no_texto(driver, "Pop")
 
 # Adicionando Pausa
 sleep(1.4)
