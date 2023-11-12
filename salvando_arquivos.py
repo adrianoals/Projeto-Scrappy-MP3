@@ -9,7 +9,7 @@ db_connection = connect_to_db(connection_string=connection_string, db_name=db_na
 collections = db_connection.list_collection_names()
 print(f'Lista de collections: {collections}')
 
-documents = find_documents(db_connection=db_connection, collection_name='Musicas', query=None)
+documents = find_documents(db_connection=db_connection, collection_name='Musicas Pop', query=None)
 for document in documents:
     print(document)
     print()

@@ -1,12 +1,10 @@
 import os
+from lista_de_musicas import *
 # import shutil
 
+caminho_diretorio = r"C:\Users\drili\Downloads\Pop"  # substitua por seu caminho de diretório
 
-lista_artista_rock_nacional = ['Barão Vermelho', 'Canto dos Malditos na Terra do Nunca', 'Capital Inicial', 'Cássia Eller', 'Cazuza', 'Charlie Brown Jr.', 'Engenheiros do Hawaii', 'Frejat', 'Jota Quest', 'Kid Abelha', 'Legião Urbana', 'Lobão', 'Los Hermanos', 'Lulu Santos', 'Mundo Livre S/A', 'Nando Reis', 'O Rappa', 'Paralamas do Sucesso', 'Raul Seixas', 'Roupa Nova', 'Skank', 'Titãs']
-
-caminho_diretorio = r"C:\Users\drili\Downloads\Rock Nacional"  # substitua por seu caminho de diretório
-
-for artista in lista_artista_rock_nacional:
+for artista in lista_artista_pop:
     os.makedirs(os.path.join(caminho_diretorio, artista), exist_ok=True)
 
 

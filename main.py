@@ -32,13 +32,13 @@ clicando_webplayer(driver)
 sleep(3)
 
 # Clicando no rock
-clicando_no_texto(driver, "Rock Nacional")
+clicando_no_texto(driver, "POP")
 
 # Adicionando Pausa
 sleep(1.4)
 
 
-for artista in lista_artista_rock_nacional:
+for artista in lista_artista_pop:
     # Entrando no artista
     clicando_no_texto(driver, artista)
 
@@ -94,7 +94,7 @@ for artista in lista_artista_rock_nacional:
             print(f'Não foi possível pegar o Script da música: {musica}') 
             
         try:    
-            insert_one_document(db_connection=db_connection, collection_name='Musicas', data=obj_json, musica=musica)
+            insert_one_document(db_connection=db_connection, collection_name='Musicas Pop', data=obj_json, musica=musica)
             print()
             # Retornando a página de músicas do artista
             # Localizando o botão pelo seletor de classe e clicando nele
