@@ -8,9 +8,6 @@ for artista in lista_artista_pop:
     os.makedirs(os.path.join(caminho_diretorio, artista), exist_ok=True)
 
 
-
-
-
 # # Caminho para a pasta 'músicas'
 # music_folder_path = r'C:\Users\drili\OneDrive\Área de Trabalho\Scrapy Tab\MP3'
 
