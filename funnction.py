@@ -75,7 +75,8 @@ lista_artista = ['Rock Noisy', 'Rod Stewart', 'Roxette', 'Roy Orbison', 'Rush', 
 def criar_diretorio(artista, musica):
     try:
         # Definindo caminho
-        caminho_do_diretorio = r"C:\Users\drili\OneDrive\Área de Trabalho\Projeto Scrappy MP3\MP3"
+        # caminho_do_diretorio = r"C:\Users\drili\OneDrive\Área de Trabalho\Projeto Scrappy MP3\MP3"
+        caminho_do_diretorio = r"/Users/adriano/Desktop/Projeto-Scrappy-MP3/Projeto-Scrappy-MP3/MP3"
         # Definindo o nome da pasta 
         nome_da_pasta = f"{artista} - {musica}"
         # Combinando o caminho do diretório com o nome da pasta
