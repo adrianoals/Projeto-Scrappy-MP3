@@ -59,13 +59,13 @@ for artista in lista_artista:
             
     # Percorrendo a lista de músicas e entrando nelas
     for musica in titulos_das_musicas:
+        
         sleep(pausa_aleatoria)
 
-        clicando_no_texto2(driver, musica)
-        
-        sleep(5)
-        # Obetendo o script da musica
         try: 
+            clicando_no_texto2(driver, musica)    
+            sleep(6)
+            # Obetendo o script da musica   
             elemento_script = driver.find_element(By.XPATH, '//script[contains(text(), "openPlayer")]')
             # Obtenha o conteúdo interno do elemento <script>
             conteudo_script = elemento_script.get_attribute('innerHTML')
@@ -87,18 +87,19 @@ for artista in lista_artista:
             insert_one_document(db_connection=db_connection, collection_name='Musicas', data=obj_json)
             print()
 
+            # Retornando a página de músicas do artista
+            # Localizando o botão pelo seletor de classe e clicando nele
+            botao_voltar = driver.find_element(By.CSS_SELECTOR, "button.navbar-brand")
+            botao_voltar.click()
+
+            # Adicionando pausa
+            sleep(2.1)
+        
         except:
             print()
             print(f'Nao foi possível pegar o script da música {musica} do {artista}')
             print()
         
-        # Retornando a página de músicas do artista
-        # Localizando o botão pelo seletor de classe e clicando nele
-        botao_voltar = driver.find_element(By.CSS_SELECTOR, "button.navbar-brand")
-        botao_voltar.click()
-
-        # Adicionando pausa
-        sleep(2.1)
 
     # Retornando a página do artistas
     # Localizando o botão pelo seletor de classe e clicando nele
