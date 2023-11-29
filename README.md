@@ -25,4 +25,6 @@ Este projeto é um web scraper que varre um site de hospedagem de músicas que p
 
 Contribuições para este projeto são bem-vindas. Por favor, abra uma issue para discutir as alterações propostas antes de fazer um pull request.
 
+Qualquer dúvida entrar em contato / Any doubts, contact me
+
 
