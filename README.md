@@ -1,7 +1,5 @@
 # Projeto-Scrappy-MP3
 
-# Projeto Scrappy Kovver App
-
 ## Descrição
 
 Este projeto é um web scraper que varre um site de hospedagem de músicas, permitindo que os usuários reproduzam músicas e selecionem quais instrumentos serão tocados. O código varre o site e baixa todos os arquivos de música.
