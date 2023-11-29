@@ -1,4 +1,4 @@
-[Read this in English](README_en.md)
+TO READ IN ENGLISH CLICK HERE [Read this in English](README_en.md)
 
 # Projeto-Scrappy-MP3
 
