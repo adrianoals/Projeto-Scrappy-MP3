@@ -3,8 +3,11 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from dotenv import load_dotenv
 import os
 import requests
+
+load_dotenv()
 
 def iniciar_driver():
     chrome_options = Options()
@@ -32,8 +35,8 @@ def navegar_site(driver):
 def login(driver):
     campo_email = driver.find_element(By.ID, 'email')
     campo_senha = driver.find_element(By.ID, 'password')
-    campo_email.send_keys('adrianotesteapp@gmail.com')
-    campo_senha.send_keys('Testeapp@') 
+    campo_email.send_keys(os.getenv('EMAIL'))
+    campo_senha.send_keys(os.getenv('SENHA')) 
     # Localize o botão de login e clique nele
     botao_login = driver.find_element(By.ID, 'email-do')
     botao_login.click()

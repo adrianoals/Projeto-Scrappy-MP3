@@ -1,10 +1,11 @@
-from selenium_functions import *
-from database import *
+from functions.selenium_functions import *
+from database.database import *
+from functions.functions import *
 import json
 from time import sleep
 from random import uniform
-from lista_de_musicas import *
-from funnctions import *
+# from relista_de_musicas import *
+
 
 # Conectando ao banco de dados
 db_connection = connect_to_db('mongodb://localhost:27017/', 'VS_Musics')

@@ -39,10 +39,3 @@ def download_arquivos(link_download, caminho, nome_arquivo):
                 print('Arquivo baixado com sucesso')
         except Exception as e:
             print("Não foi possível salvar o arquivo:", e)
-
-
-# # Fazendo uma requisição GET para a URL
-# resposta = requests.get(link_download)
-# with open(os.path.join(caminho, nome_arquivo), 'wb') as arquivo:
-#     arquivo.write(resposta.content)
-#     print('Arquivo baixado com sucesso')
