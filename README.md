@@ -1,4 +1,4 @@
-English version
+[Read this in English](README_en.md)
 
 # Projeto-Scrappy-MP3
 
